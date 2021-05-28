@@ -1,0 +1,25 @@
+// Note - the code in this file is a product of a question posted to stackoverflow
+// The question and my original code are here: https://stackoverflow.com/questions/67631488/how-do-i-nest-callbacks-for-async-functions-in-javascript?noredirect=1#comment119542810_67631488
+
+const getServerData = async userData => {
+  // declare data to send
+  const apiData = userData;
+
+  // declare route
+  const url = 'http://localhost:3030/nodeserver';
+
+  //   declare POST request options
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(apiData)
+  };
+
+  // fetch from Node server
+  let response = await fetch(url, options);
+  return response.json();
+};
+
+export { getServerData };

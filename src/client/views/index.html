@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+    <title>Capstone Project</title>
+  </head>
+
+  <body>
+    <div id="content">
+      <header>
+        <h1>Travel Planner</h1>
+      </header>
+      <aside>
+        <form>
+          <label for="city"><p>Destination</p></label>
+          <input
+            type="text"
+            placeholder="Enter city here"
+            name="city"
+            id="city"
+            required
+          />
+          <label for="date"><p>Departure Date</p></label>
+          <input type="date" id="date" />
+          <label for="date-return"><p>Return Date</p></label>
+          <input type="date" id="date-return" />
+          <input type="button" value="Go!" id="submitbtn" />
+        </form>
+      </aside>
+
+      <main>
+        <img src="" alt="" id="placeImage" class="dyn-disp hidden" />
+      </main>
+      <section>
+        <div class="section-flex">
+          <div class="itinerary">
+            <h2 class="dyn-disp hidden">Trip duration:</h2>
+            <br />
+            <div class="duration-result"></div>
+      </section>
+
+      <article>
+        <h2 class="dyn-disp hidden">Weather</h2>
+        <br />
+        <div id="weather-forecast"></div>
+      </article>
+
+      <footer></footer>
+    </div>
+    <script>
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+  </body>
+</html>
